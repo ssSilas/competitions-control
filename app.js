@@ -1,19 +1,14 @@
 import express from "express";
 import createError from "http-errors"
-import database from "./db/database.js";
 import contest_router from "./routes/contest.router.js";
+import syncDatabase from "./db/syncDatabase.js";
+import sync from "./db/syncDatabase.js";
 
-const host = '0.0.0.0';
-const port = 3000;
+const host = '127.0.0.1';
+const port = 5000;
 
 // Create databases...
-database.sync({logging: false, force: false}).then(result => {
-    console.log(" * DB Synced!");
-}).catch(reason => {
-    console.log(reason);
-});
-
-
+sync()
 
 
 // Start express
@@ -27,7 +22,6 @@ app.get('/ping', function (req, res, next) {
 })
 
 app.use('/contest', contest_router);
-
 
 
 app.use(function (req, res, next) {

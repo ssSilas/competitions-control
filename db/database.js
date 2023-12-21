@@ -1,8 +1,8 @@
-import {Sequelize} from "sequelize";
+import { Sequelize } from "sequelize";
 
-const database = new Sequelize({
+const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: './db/competitions.sqlite'
+    storage: './db/competitions.sqlite',
 });
 
-export default database;
+export default sequelize;
