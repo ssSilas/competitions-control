@@ -54,4 +54,39 @@ contest_router.put("/finish", async (req, res) => {
   }
 });
 
+contest_router.post("/add-athlete", async (req, res) => {
+  try {
+    const { contestId } = req.query;
+    const { name, results } = req.body;
+    const athleteObj = { name, results }
+    const result = await contestController.addAthlete(contestId, athleteObj);
+
+    res.json(result);
+  } catch (error) {
+    res.status(error.status).json({ error });
+  }
+});
+
+contest_router.get("/athletes-by-competition", async (req, res) => {
+  try {
+    const { contestId } = req.query;
+    const result = await contestController.listAthletesByCompetition(contestId);
+
+    res.json(result);
+  } catch (error) {
+    res.status(error.status).json({ error });
+  }
+});
+
+contest_router.get("/final-result", async (req, res) => {
+  try {
+    const { contestId } = req.query;
+    const result = await contestController.finalResultCompetition(contestId);
+
+    res.json(result);
+  } catch (error) {
+    res.status(error.status).json({ error });
+  }
+});
+
 export default contest_router;

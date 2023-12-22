@@ -2,8 +2,8 @@ import { DataTypes, Model } from 'sequelize';
 import sequelize from '../db/database.js';
 import { currentDatetime } from '../helpers/Util.js';
 
-class ContestResult extends Model { }
-ContestResult.init({
+class ContestResultModel extends Model { }
+ContestResultModel.init({
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -13,7 +13,7 @@ ContestResult.init({
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'contest',
+      model: 'contests',
       referencesKey: 'id',
     }
   },
@@ -21,7 +21,7 @@ ContestResult.init({
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'athlete',
+      model: 'athletes',
       referencesKey: 'id'
     }
   },
@@ -34,14 +34,15 @@ ContestResult.init({
     allowNull: false,
   },
   createdAt: {
-    type: 'TIMESTAMP',
+    type: DataTypes.STRING(16),
     defaultValue: currentDatetime().format('YYYY-MM-DD HH:MM'),
     allowNull: false
   },
 }, {
   sequelize,
   updatedAt: false,
-  modelName: 'contestresult'
+  modelName: 'contestresults',
+  freezeTableName: 'contestresults'
 });
 
-export default ContestResult;
+export default ContestResultModel;

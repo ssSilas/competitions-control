@@ -1,12 +1,11 @@
-import Athlete from "./athlete.model.js"
-import Contest from "./contest.model.js"
-import ContestResult from "./contestresult.model.js"
+import AthleteModel from "./athlete.model.js"
+import ContestModel from "./contest.model.js"
+import ContestResultModel from "./contestresult.model.js"
 
 export const loadModels = () => {
-  Athlete.hasMany(ContestResult)
+  AthleteModel.hasMany(ContestResultModel, { foreignKey: 'athletefk' });
+  ContestModel.hasMany(ContestResultModel, { foreignKey: 'contestfk' });
 
-  Contest.hasMany(ContestResult)
-
-  ContestResult.belongsTo(Contest)
-  ContestResult.belongsTo(Athlete)
+  ContestResultModel.belongsTo(AthleteModel, { foreignKey: 'athletefk' });
+  ContestResultModel.belongsTo(ContestModel, { foreignKey: 'contestfk' })
 }

@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "167d0306-3365-4a12-9afb-1e56f8e71625",
+		"name": "Personal - Competitions Control",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18745104",
+		"_collection_link": "https://lively-shuttle-343554.postman.co/workspace/My-Workspace~87a8ed32-2a17-47f9-8019-09b487411978/collection/18745104-167d0306-3365-4a12-9afb-1e56f8e71625?action=share&source=collection_link&creator=18745104"
+	},
+	"item": [
+		{
+			"name": "Contest",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseLogin = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"AUTH_TOKEN\", responseLogin.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ficar de pé\",\n    \"type\": \"resistance\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/contest",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"contest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseLogin = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"AUTH_TOKEN\", responseLogin.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bebedouro - MG\",\n    \"type\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/contest",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"contest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Active",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseLogin = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"AUTH_TOKEN\", responseLogin.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Bebedouro - MG\",\n    \"type\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/contest/active",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"contest",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseLogin = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"AUTH_TOKEN\", responseLogin.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/contest/by-id?id=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"contest",
+								"by-id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finish",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseLogin = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"AUTH_TOKEN\", responseLogin.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/contest/finish?id=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"contest",
+								"finish"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Athlete in Contest",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Janerse\",\n    \"results\": [\n        {\n            \"value\": \"4546\",\n            \"unit\": \"lit\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/contest/add-athlete?contestId=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"contest",
+								"add-athlete"
+							],
+							"query": [
+								{
+									"key": "contestId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Athlete in Contest Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Jane Doe\",\n  \"value\": 50,\n  \"unit\": \"min\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/contest//athletes-by-competition?contestId=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"contest",
+								"",
+								"athletes-by-competition"
+							],
+							"query": [
+								{
+									"key": "contestId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{AUTH_TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "http://127.0.0.1:5000",
+			"type": "string"
+		},
+		{
+			"key": "AUTH_TOKEN",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "AUTH_TOKEN",
+			"value": ""
+		}
+	]
+}
