@@ -1,7 +1,7 @@
 import express from "express";
+import cors from "cors";
 import createError from "http-errors"
 import contest_router from "./routes/contest.router.js";
-import syncDatabase from "./db/syncDatabase.js";
 import sync from "./db/syncDatabase.js";
 
 const host = '127.0.0.1';
@@ -13,6 +13,9 @@ sync()
 
 // Start express
 const app = express();
+app.use(cors({
+    origin: 'http://127.0.0.1:4200'
+}));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
