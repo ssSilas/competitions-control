@@ -1,4 +1,4 @@
-# Documentação Postman - Personal - Competitions Control
+# Documentação Postman - Competitions Control
 
 Esta documentação descreve os endpoints disponíveis na coleção "Competitions Control" no Postman. A collection Postman se encontra na raiz do projeto.
 
