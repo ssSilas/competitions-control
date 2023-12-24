@@ -210,7 +210,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Janerse\",\n    \"results\": [\n        {\n            \"value\": \"4546\",\n            \"unit\": \"lit\"\n        }\n    ]\n}",
+							"raw": "{\n    \"name\": \"Competidosrs\",\n    \"results\": [\n        {\n            \"value\": 5,\n            \"unit\": \"min\"\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -218,7 +218,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/contest/add-athlete?contestId=1",
+							"raw": "{{API_URL}}/contest/add-athlete?contestId=3",
 							"host": [
 								"{{API_URL}}"
 							],
@@ -229,7 +229,7 @@
 							"query": [
 								{
 									"key": "contestId",
-									"value": "1"
+									"value": "3"
 								}
 							]
 						}
@@ -237,7 +237,7 @@
 					"response": []
 				},
 				{
-					"name": "Add Athlete in Contest Copy",
+					"name": "Athletes by competition",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -254,14 +254,49 @@
 							}
 						},
 						"url": {
-							"raw": "{{API_URL}}/contest//athletes-by-competition?contestId=1",
+							"raw": "{{API_URL}}/contest/athletes-by-competition?contestId=1",
 							"host": [
 								"{{API_URL}}"
 							],
 							"path": [
 								"contest",
-								"",
 								"athletes-by-competition"
+							],
+							"query": [
+								{
+									"key": "contestId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Final result",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Jane Doe\",\n  \"value\": 50,\n  \"unit\": \"min\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/contest/final-result?contestId=1",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"contest",
+								"final-result"
 							],
 							"query": [
 								{
