@@ -29,7 +29,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Ficar de pé\",\n    \"type\": \"resistance\"\n}",
+							"raw": "{\n    \"name\": \"Beber Água\",\n    \"type\": \"amount\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -62,21 +62,9 @@
 							}
 						}
 					],
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"Bebedouro - MG\",\n    \"type\": 3\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{API_URL}}/contest",
 							"host": [
@@ -103,21 +91,9 @@
 							}
 						}
 					],
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"Bebedouro - MG\",\n    \"type\": 3\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{API_URL}}/contest/active",
 							"host": [
@@ -149,7 +125,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{API_URL}}/contest/by-id?id=1",
+							"raw": "{{API_URL}}/contest/by-id?contestId=a",
 							"host": [
 								"{{API_URL}}"
 							],
@@ -159,8 +135,8 @@
 							],
 							"query": [
 								{
-									"key": "id",
-									"value": "1"
+									"key": "contestId",
+									"value": "a"
 								}
 							]
 						}
@@ -210,7 +186,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Competidosrs\",\n    \"results\": [\n        {\n            \"value\": 5,\n            \"unit\": \"min\"\n        }\n    ]\n}",
+							"raw": "{\n    \"name\": \"Competidor 3\",\n    \"cpf\": 31646472047,\n    \"results\": [\n      {\n        \"value\": 5,\n        \"unit\": \"lit\"\n      }\n    ]\n  }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -238,21 +214,9 @@
 				},
 				{
 					"name": "Athletes by competition",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"name\": \"Jane Doe\",\n  \"value\": 50,\n  \"unit\": \"min\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{API_URL}}/contest/athletes-by-competition?contestId=1",
 							"host": [
@@ -274,21 +238,9 @@
 				},
 				{
 					"name": "Final result",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"name\": \"Jane Doe\",\n  \"value\": 50,\n  \"unit\": \"min\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{API_URL}}/contest/final-result?contestId=1",
 							"host": [
