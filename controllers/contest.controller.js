@@ -49,7 +49,7 @@ export default class ContestController {
 
     const value = this.handlingTypeContest(contestExist.type, athleteObj.results)
     if (!athleteExist) {
-      const athlete = await AthleteModel.create({ name: name })
+      const athlete = await AthleteModel.create({ name: name, cpf: athleteObj.cpf })
       const keys = {
         contestfk: contestId,
         athletefk: athlete.id,
@@ -71,7 +71,7 @@ export default class ContestController {
         },
         {
           model: AthleteModel,
-          attributes: ['name'],
+          attributes: ['name', 'cpf'],
         },
       ],
     })
@@ -98,7 +98,7 @@ export default class ContestController {
         },
         {
           model: AthleteModel,
-          attributes: ['name'],
+          attributes: ['name', 'cpf'],
         },
       ],
     })

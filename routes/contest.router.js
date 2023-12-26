@@ -57,8 +57,8 @@ contest_router.put("/finish", async (req, res) => {
 contest_router.post("/add-athlete", async (req, res) => {
   try {
     const { contestId } = req.query;
-    const { name, results } = req.body;
-    const athleteObj = { name, results }
+    const { name, results, cpf } = req.body;
+    const athleteObj = { name, results, cpf }
     const result = await contestController.addAthlete(contestId, athleteObj);
 
     res.json(result);

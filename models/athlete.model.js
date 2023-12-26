@@ -14,6 +14,11 @@ AthleteModel.init({
     allowNull: false,
     unique: true
   },
+  cpf: {
+    type: DataTypes.INTEGER(11),
+    allowNull: false,
+    unique: true
+  },
   createdAt: {
     type: DataTypes.STRING(16),
     defaultValue: currentDatetime().format('YYYY-MM-DD HH:MM'),
