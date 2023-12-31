@@ -45,10 +45,11 @@ export default class ContestController {
     const contestExist = await this.checkContestExist(contestId)
 
     const name = athleteObj.name.toUpperCase()
-    const athleteExist = await this.checkAthleteInContest(contestId, name)
+    const athleteExist = await this.checkAthleteInContest(contestId, name, athleteObj.cpf)
 
     const value = this.handlingTypeContest(contestExist.type, athleteObj.results)
     if (!athleteExist) {
+      await this.checkCpfUsed(athleteObj.cpf)
       const athlete = await AthleteModel.create({ name: name, cpf: athleteObj.cpf })
       const keys = {
         contestfk: contestId,
@@ -120,7 +121,7 @@ export default class ContestController {
     }
   }
 
-  async checkAthleteInContest(contestId, athleteName) {
+  async checkAthleteInContest(contestId, athleteName, athleteCpf) {
     try {
       const contestFinish = await ContestModel.findOne({
         where: { id: contestId }
@@ -139,13 +140,29 @@ export default class ContestController {
           {
             model: AthleteModel,
             attributes: [],
-            where: {
-              name: athleteName
-            }
+            where: { name: athleteName }
           },
         ],
       })
       return exist
+    } catch (error) {
+      console.log(error)
+      throw errorObject(error);
+    }
+  }
+
+  async checkCpfUsed(athleteCpf) {
+    try {
+      const exist = await AthleteModel.findOne({
+        where: { cpf: athleteCpf }
+      })
+
+      if (exist) {
+        throw {
+          message: "O cpf já é utilizado por outro atleta!",
+          status: HttpStatus.BAD_REQUEST,
+        };
+      }
     } catch (error) {
       console.log(error)
       throw errorObject(error);

@@ -8,5 +8,5 @@
 yarn.lock
 
 #StagingDB
-# /db/competitions.sqlite
+/db/competitions.sqlite
 
